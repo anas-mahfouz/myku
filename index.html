@@ -13,30 +13,32 @@
     
     <style>
 
-        /* ==========================================
-   TEAM ROSTER SECTION STYLING
+/* ==========================================
+   FULL WIDTH VERTICAL TEAM ROSTER STYLING
    ========================================== */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    display: flex;
+    flex-direction: column; /* ترتيب رأسي من فوق لتحت */
+    gap: 20px;
+    width: 100%; /* ملء العرض بالكامل */
 }
 
 .member-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 25px;
+    padding: 25px 30px;
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 25px;
+    align-items: center;
     position: relative;
     transition: 0.3s ease;
+    width: 100%; /* الكارت يملأ العرض المتاح بالكامل */
 }
 
 .member-card:hover {
     border-color: var(--primary-color);
     box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
-    transform: translateY(-5px);
+    transform: translateX(-5px); /* تأثير حركة جانبية بسيطة عند الـ Hover */
 }
 
 /* تصميم أيقونة البدلة مع علامة الاستفهام */
@@ -49,7 +51,7 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    position: relative; /* لتراكب الأيقونات */
+    position: relative;
 }
 
 .member-avatar .suit-icon {
@@ -67,11 +69,16 @@
     font-weight: bold;
 }
 
+.member-info {
+    width: 100%;
+}
+
 .member-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--text-color);
     margin-bottom: 4px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .member-handle {
@@ -83,17 +90,26 @@
 .member-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .tag {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 3px 8px;
-    font-size: 0.75rem;
+    padding: 4px 10px;
+    font-size: 0.8rem;
     font-weight: bold;
     letter-spacing: 1px;
     background: rgba(0, 255, 204, 0.05);
+}
+
+/* التوافق مع الشاشات الصغيرة للموبايل */
+@media (max-width: 576px) {
+    .member-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
 }
         
         /* CSS STYLE SHEET */
@@ -540,7 +556,7 @@
     </section>
 
 <!-- ==========================================
-     TEAM ROSTER SECTION
+     TEAM ROSTER SECTION (VERTICAL & FULL WIDTH)
      ========================================== -->
 <section id="team">
     <h2 class="section-title">Team Roster</h2>
@@ -605,7 +621,7 @@
                 <i class="fa-solid fa-user-tie suit-icon"></i>
             </div>
             <div class="member-info">
-                <h3>Omar</h3>
+                <h3>OMAR</h3>
                 <div class="member-handle">@O.train</div>
                 <div class="member-tags">
                     <span class="tag">OSINT</span>
@@ -621,7 +637,7 @@
                 <i class="fa-solid fa-user-tie suit-icon"></i>
             </div>
             <div class="member-info">
-                <h3>Essam Abdelaziz</h3>
+                <h3>ESSAM</h3>
                 <div class="member-handle">@DRzola</div>
                 <div class="member-tags">
                     <span class="tag">FORENSICS</span>
