@@ -12,6 +12,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+
+        /* ==========================================
+   TEAM ROSTER SECTION STYLING
+   ========================================== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.member-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.member-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
+    transform: translateY(-5px);
+}
+
+/* تصميم أيقونة البدلة مع علامة الاستفهام */
+.member-avatar {
+    width: 75px;
+    height: 75px;
+    background-color: #0d0d11;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative; /* لتراكب الأيقونات */
+}
+
+.member-avatar .suit-icon {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    position: absolute;
+    bottom: 4px;
+}
+
+.member-avatar .question-icon {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    position: absolute;
+    top: 8px;
+    font-weight: bold;
+}
+
+.member-info h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.member-handle {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: rgba(0, 255, 204, 0.05);
+}
+        
         /* CSS STYLE SHEET */
         :root {
             --bg-color: #050507; 
@@ -455,6 +539,100 @@
         <button class="btn" onclick="location.href='#join'">INITIALIZE_CONNECTION / JOIN</button>
     </section>
 
+<!-- ==========================================
+     TEAM ROSTER SECTION
+     ========================================== -->
+<section id="team">
+    <h2 class="section-title">Team Roster</h2>
+    <div class="team-grid">
+
+        <!-- Member 1: Anas Mahfouz -->
+        <div class="member-card">
+            <div class="member-avatar">
+                <i class="fa-solid fa-question question-icon"></i>
+                <i class="fa-solid fa-user-tie suit-icon"></i>
+            </div>
+            <div class="member-info">
+                <h3>Anas Mahfouz</h3>
+                <div class="member-handle">@The80</div>
+                <div class="member-tags">
+                    <span class="tag">WEB</span>
+                    <span class="tag">REVERSE</span>
+                    <span class="tag">CRYPTO</span>
+                    <span class="tag">PWN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member 2: AHMED SHALABY -->
+        <div class="member-card">
+            <div class="member-avatar">
+                <i class="fa-solid fa-question question-icon"></i>
+                <i class="fa-solid fa-user-tie suit-icon"></i>
+            </div>
+            <div class="member-info">
+                <h3>AHMED SHALABY</h3>
+                <div class="member-handle">@XinVictus</div>
+                <div class="member-tags">
+                    <span class="tag">WEB</span>
+                    <span class="tag">CRYPTO</span>
+                    <span class="tag">PWN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member 3: Fekry Mohamed -->
+        <div class="member-card">
+            <div class="member-avatar">
+                <i class="fa-solid fa-question question-icon"></i>
+                <i class="fa-solid fa-user-tie suit-icon"></i>
+            </div>
+            <div class="member-info">
+                <h3>Fekry Mohamed</h3>
+                <div class="member-handle">@Mr_Karkar</div>
+                <div class="member-tags">
+                    <span class="tag">WEB</span>
+                    <span class="tag">REVERSE</span>
+                    <span class="tag">PWN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member 4: OMAR -->
+        <div class="member-card">
+            <div class="member-avatar">
+                <i class="fa-solid fa-question question-icon"></i>
+                <i class="fa-solid fa-user-tie suit-icon"></i>
+            </div>
+            <div class="member-info">
+                <h3>Omar</h3>
+                <div class="member-handle">@O.train</div>
+                <div class="member-tags">
+                    <span class="tag">OSINT</span>
+                    <span class="tag">CRYPTO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member 5: ESSAM -->
+        <div class="member-card">
+            <div class="member-avatar">
+                <i class="fa-solid fa-question question-icon"></i>
+                <i class="fa-solid fa-user-tie suit-icon"></i>
+            </div>
+            <div class="member-info">
+                <h3>Essam Abdelaziz</h3>
+                <div class="member-handle">@DRzola</div>
+                <div class="member-tags">
+                    <span class="tag">FORENSICS</span>
+                    <span class="tag">REVERSE</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+    
     <!-- Capabilities / Specialties Section (Updated with requested categories) -->
     <section id="about">
         <h2 class="section-title">Operational Sectors</h2>
