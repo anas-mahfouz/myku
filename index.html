@@ -35,11 +35,7 @@
     width: 100%; /* الكارت يملأ العرض المتاح بالكامل */
 }
 
-.member-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
-    transform: translateX(-5px); /* تأثير حركة جانبية بسيطة عند الـ Hover */
-}
+/* hover state handled below by the clickable-card rules */
 
 /* تصميم أيقونة البدلة مع علامة الاستفهام */
 .member-avatar {
@@ -100,7 +96,7 @@
     font-size: 0.8rem;
     font-weight: bold;
     letter-spacing: 1px;
-    background: rgba(0, 255, 204, 0.05);
+    background: rgba(255, 26, 46, 0.06);
 }
 
 /* التوافق مع الشاشات الصغيرة للموبايل */
@@ -111,17 +107,162 @@
         gap: 15px;
     }
 }
+
+/* Clickable member cards -> profile pages */
+.member-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.member-card h3,
+.member-card .member-handle {
+    text-decoration: none;
+}
+
+.member-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 25px rgba(255, 26, 46, 0.22);
+    transform: translateX(-5px);
+}
+
+.member-card::after {
+    content: 'VIEW PROFILE →';
+    position: absolute;
+    right: 30px;
+    bottom: 18px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #777;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.member-card:hover::after {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Live CTF section */
+.live-ctf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 18px 22px;
+    background: rgba(20, 20, 25, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.live-indicator {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 12px var(--primary-color);
+    animation: livePulse 1s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.ctf-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.ctf-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.ctf-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 26, 46, 0.15);
+}
+
+.ctf-card::before {
+    content: 'LIVE';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--primary-color);
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.ctf-card h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-right: 50px;
+    text-transform: uppercase;
+}
+
+.ctf-meta {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.ctf-countdown {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.ctf-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.ctf-card a:hover {
+    color: var(--primary-color);
+}
+
+.ctf-loading {
+    width: 100%;
+    padding: 60px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    color: var(--muted-text);
+}
+
+.ctf-loading i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
         
         /* CSS STYLE SHEET */
         :root {
-            --bg-color: #050507; 
-            --card-bg: rgba(20, 20, 25, 0.7); 
-            --primary-color: #00ffcc; /* Cyber Tiffany Neon */
-            --secondary-color: #ff0055; /* Alert Crimson Neon */
-            --text-color: #e0e6ed; 
-            --muted-text: #a0aab5; 
-            --border-color: #1a1e24; 
-            --glow: 0 0 15px rgba(0, 255, 204, 0.4);
+            --bg-color: #000000; 
+            --card-bg: rgba(18, 18, 20, 0.75); 
+            --primary-color: #ff1a2e; /* MYKU Signature Red */
+            --secondary-color: #e8e8e8; /* Chrome Silver */
+            --text-color: #f2f2f2; 
+            --muted-text: #9aa3ab; 
+            --border-color: #1c1c1c; 
+            --glow: 0 0 15px rgba(255, 26, 46, 0.45);
             --font-family: 'Courier New', Courier, monospace; /* Terminal style font */
         }
 
@@ -149,8 +290,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(26, 30, 36, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 30, 36, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
             opacity: 0.3;
@@ -176,7 +317,7 @@
             backdrop-filter: blur(15px);
             border-bottom: 2px solid var(--primary-color);
             z-index: 1000;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 20px rgba(255, 26, 46, 0.25);
         }
 
         .navbar {
@@ -245,7 +386,7 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 26, 46, 0.12) 0%, transparent 70%);
         }
 
         .hero h1 {
@@ -273,7 +414,7 @@
 
         @keyframes titleGlow {
             from { text-shadow: 0 0 10px rgba(224, 230, 237, 0.2); }
-            to { text-shadow: 0 0 25px rgba(0, 255, 204, 0.6), 0 0 10px rgba(0, 255, 204, 0.4); }
+            to { text-shadow: 0 0 25px rgba(255, 26, 46, 0.6), 0 0 10px rgba(255, 26, 46, 0.4); }
         }
 
         .btn {
@@ -298,7 +439,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 26, 46, 0.4), transparent);
             transition: 0.5s;
         }
 
@@ -309,7 +450,7 @@
         .btn:hover {
             background: var(--primary-color);
             color: var(--bg-color);
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
+            box-shadow: 0 0 30px rgba(255, 26, 46, 0.55);
             transform: translateY(-3px) scale(1.05);
         }
 
@@ -377,7 +518,7 @@
         .card:hover {
             transform: translateY(-15px);
             border-color: var(--primary-color);
-            box-shadow: 0 15px 35px rgba(0, 255, 204, 0.15);
+            box-shadow: 0 15px 35px rgba(255, 26, 46, 0.18);
         }
 
         .card i {
@@ -495,7 +636,7 @@
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--secondary-color);
-            box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+            box-shadow: 0 0 10px rgba(255, 26, 46, 0.25);
         }
 
         /* Footer */
@@ -541,6 +682,8 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#live-ctfs">Live CTFs</a></li>
                 <li><a href="#about">Capabilities</a></li>
                 <li><a href="#stats">Log</a></li>
                 <li><a href="#join">Recruitment</a></li>
@@ -563,7 +706,7 @@
     <div class="team-grid">
 
         <!-- Member 1: Anas Mahfouz -->
-        <div class="member-card">
+        <a href="members/anas-mahfouz.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -578,10 +721,10 @@
                     
                 </div>
             </div>
-        </div>
+        </a>
 
         <!-- Member 2: AHMED SHALABY -->
-        <div class="member-card">
+        <a href="members/ahmed-shalaby.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -595,10 +738,10 @@
                     
                 </div>
             </div>
-        </div>
+        </a>
 
         <!-- Member 3: Fekry Mohamed -->
-        <div class="member-card">
+        <a href="members/fekry-mohamed.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -612,10 +755,10 @@
                     <span class="tag">PWN</span>
                 </div>
             </div>
-        </div>
+        </a>
 
         <!-- Member 4: Omar -->
-        <div class="member-card">
+        <a href="members/omar-mostafa.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -628,10 +771,10 @@
                     <span class="tag">CRYPTO</span>
                 </div>
             </div>
-        </div>
+        </a>
 
         <!-- Member 5: Essam Abdelaziz -->
-        <div class="member-card">
+        <a href="members/essam-abdelaziz.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -644,10 +787,10 @@
                     <span class="tag">REVERSE</span>
                 </div>
             </div>
-        </div>
+        </a>
 
                 <!-- Member 6: abdullah mokhtar -->
-        <div class="member-card">
+        <a href="members/abdullah-mokhtar.html" class="member-card">
             <div class="member-avatar">
                 <i class="fa-solid fa-question question-icon"></i>
                 <i class="fa-solid fa-user-tie suit-icon"></i>
@@ -661,8 +804,31 @@
                     <span class="tag">OSINT</span>
                 </div>
             </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- ==========================================
+     LIVE CTF OPERATIONS SECTION
+     ========================================== -->
+<section id="live-ctfs">
+    <h2 class="section-title">LIVE CTF OPERATIONS</h2>
+
+    <div class="live-ctf-header">
+        <div>
+            <span class="live-indicator"></span>
+            <span>LIVE CTFtime FEED</span>
         </div>
 
+        <span id="ctf-last-update">Loading...</span>
+    </div>
+
+    <div id="ctf-container" class="ctf-container">
+        <div class="ctf-loading">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <p>CONNECTING TO CTFtime...</p>
+        </div>
     </div>
 </section>
     
@@ -774,7 +940,7 @@
         function drawMatrix() {
             ctx.fillStyle = 'rgba(5, 5, 7, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#00ffcc'; 
+            ctx.fillStyle = '#d8dde2'; 
             ctx.font = fontSize + 'px monospace';
             for (let i = 0; i < rainDrops.length; i++) {
                 const text = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -849,6 +1015,116 @@
                 submitBtn.disabled = false;
             });
         }
+
+        // 4. Live CTFtime Feed
+        const ctfContainer = document.getElementById("ctf-container");
+        const lastUpdate = document.getElementById("ctf-last-update");
+
+        async function loadLiveCTFs() {
+            try {
+                const response = await fetch("https://ctftime.org/api/v1/events/?limit=20");
+
+                if (!response.ok) {
+                    throw new Error("CTFtime API request failed");
+                }
+
+                const events = await response.json();
+                const now = Math.floor(Date.now() / 1000);
+
+                const liveEvents = events.filter(event => {
+                    return event.start <= now && event.finish >= now;
+                });
+
+                if (liveEvents.length === 0) {
+                    ctfContainer.innerHTML = `
+                        <div class="ctf-loading">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <p>NO ACTIVE CTF DETECTED</p>
+                        </div>
+                    `;
+                } else {
+                    ctfContainer.innerHTML = "";
+
+                    liveEvents.forEach(event => {
+                        const card = document.createElement("div");
+                        card.className = "ctf-card";
+
+                        card.innerHTML = `
+                            <h3>${escapeHTML(event.title)}</h3>
+                            <div class="ctf-meta">
+                                <div><i class="fa-solid fa-calendar"></i> ${formatDate(event.start)}</div>
+                                <div><i class="fa-solid fa-clock"></i> Ends: ${formatDate(event.finish)}</div>
+                                <div><i class="fa-solid fa-globe"></i> ${event.format || "CTF"}</div>
+                            </div>
+                            <div class="ctf-countdown" data-finish="${event.finish}">CALCULATING...</div>
+                            <a href="${event.url}" target="_blank" rel="noopener">OPEN CTF →</a>
+                        `;
+
+                        ctfContainer.appendChild(card);
+                    });
+
+                    updateCountdowns();
+                }
+
+                lastUpdate.textContent = "UPDATED " + new Date().toLocaleTimeString();
+
+            } catch (error) {
+                console.error(error);
+
+                ctfContainer.innerHTML = `
+                    <div class="ctf-loading">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p>CTFtime feed unavailable</p>
+                    </div>
+                `;
+
+                lastUpdate.textContent = "OFFLINE";
+            }
+        }
+
+        function updateCountdowns() {
+            document.querySelectorAll(".ctf-countdown").forEach(element => {
+                const finish = Number(element.dataset.finish);
+
+                function update() {
+                    const now = Math.floor(Date.now() / 1000);
+                    let difference = finish - now;
+
+                    if (difference <= 0) {
+                        element.textContent = "CTF FINISHED";
+                        return;
+                    }
+
+                    const days = Math.floor(difference / 86400);
+                    difference %= 86400;
+                    const hours = Math.floor(difference / 3600);
+                    difference %= 3600;
+                    const minutes = Math.floor(difference / 60);
+                    const seconds = difference % 60;
+
+                    element.textContent = `T-${days}D ${hours}H ${minutes}M ${seconds}S`;
+                }
+
+                update();
+                setInterval(update, 1000);
+            });
+        }
+
+        function formatDate(timestamp) {
+            return new Date(timestamp * 1000).toLocaleString();
+        }
+
+        function escapeHTML(value) {
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        loadLiveCTFs();
+        setInterval(loadLiveCTFs, 5 * 60 * 1000);
         </script>
 </body>
 </html>
