@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fekry Mohamed | MYKU</title>
+
+    <link rel="icon" type="image/png" href="../11zon_cropped.png">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+        :root {
+            --bg: #000000;
+            --card: #111114;
+            --red: #ff1a2e;
+            --white: #f2f2f2;
+            --grey: #9aa3ab;
+            --border: #1c1c1c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: "Courier New", monospace;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.03) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.03) 1px,
+                    transparent 1px
+                );
+            background-size: 45px 45px;
+            pointer-events: none;
+        }
+
+        header {
+            border-bottom: 1px solid var(--red);
+            padding: 20px 5%;
+            background: rgba(0,0,0,.95);
+        }
+
+        header a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        main {
+            width: min(1100px, 90%);
+            margin: auto;
+            padding: 100px 0;
+        }
+
+        .profile-header {
+            border-left: 4px solid var(--red);
+            padding-left: 25px;
+            margin-bottom: 60px;
+        }
+
+        .profile-header h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            text-transform: uppercase;
+        }
+
+        .profile-header .handle {
+            color: var(--red);
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .profile-header p {
+            color: var(--grey);
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            color: var(--red);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .social-link {
+            border: 1px solid var(--border);
+            padding: 18px;
+            color: var(--white);
+            text-decoration: none;
+            transition: .3s;
+            background: var(--card);
+        }
+
+        .social-link:hover {
+            border-color: var(--red);
+            color: var(--red);
+            transform: translateY(-4px);
+        }
+
+        .writeups {
+            display: grid;
+            gap: 20px;
+        }
+
+        .writeup {
+            border: 1px solid var(--border);
+            background: var(--card);
+            padding: 25px;
+            transition: .3s;
+        }
+
+        .writeup:hover {
+            border-color: var(--red);
+            transform: translateX(5px);
+        }
+
+        .writeup h3 {
+            margin-bottom: 10px;
+        }
+
+        .writeup p {
+            color: var(--grey);
+            line-height: 1.7;
+        }
+
+        .writeup a {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        .discord {
+            border: 1px solid var(--border);
+            background: var(--card);
+            padding: 25px;
+            color: var(--grey);
+        }
+
+        .discord strong {
+            color: var(--white);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--grey);
+        }
+
+        @media(max-width:600px) {
+            main {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">
+        ← BACK TO MYKU
+    </a>
+</header>
+
+<main>
+
+    <div class="profile-header">
+
+        <h1>Fekry Mohamed</h1>
+
+        <div class="handle">
+            @Mr_Karkar
+        </div>
+
+        <p>
+            MYKU Team Member
+        </p>
+
+    </div>
+
+
+    <section class="section">
+
+        <h2>Specialties</h2>
+
+        <div class="social-grid">
+            <div class="social-link">
+                <i class="fa-solid fa-globe"></i>
+                WEB
+            </div>
+
+            <div class="social-link">
+                <i class="fa-solid fa-microchip"></i>
+                REVERSE
+            </div>
+
+            <div class="social-link">
+                <i class="fa-solid fa-terminal"></i>
+                PWN
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Social Links</h2>
+
+        <div class="social-grid">
+            <a
+                class="social-link"
+                href="https://github.com/Mr-Karkar"
+                target="_blank"
+            >
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
+
+            <a
+                class="social-link"
+                href="https://ctftime.org/team/441671"
+                target="_blank"
+            >
+                <i class="fa-solid fa-flag"></i>
+                CTFtime
+            </a>
+
+            <a
+                class="social-link"
+                href="#"
+                target="_blank"
+            >
+                <i class="fa-brands fa-discord"></i>
+                Discord
+            </a>
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Discord</h2>
+
+        <div class="discord">
+            <i class="fa-brands fa-discord"></i>
+            <strong>Discord:</strong>
+            @Mr_Karkar
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Writeups</h2>
+
+        <div class="writeups">
+            <article class="writeup">
+
+                <h3>
+                    Writeup coming soon
+                </h3>
+
+                <p>
+                    Fekry hasn't published a writeup yet — check back soon.
+                </p>
+
+                <a
+                    href="#"
+                    target="_blank"
+                >
+                    READ WRITEUP →
+                </a>
+
+            </article>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    MYKU UNIT // MEMBER PROFILE
+</footer>
+
+</body>
+</html>
